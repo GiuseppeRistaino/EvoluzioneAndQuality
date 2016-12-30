@@ -1,0 +1,13 @@
+ShortTermWeather
+shortTermForecast
+totalRain
+totalSnow
+skyCon
+ShortTermForecast
+rain
+snow
+temp
+time
+weatherID
+getShortTermForecast
+getTotalPrecipitation

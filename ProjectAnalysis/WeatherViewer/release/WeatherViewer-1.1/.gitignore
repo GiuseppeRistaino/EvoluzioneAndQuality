@@ -1,0 +1,6 @@
+*.class
+target/
+*.java~
+workspace.xml
+weatherviewer/*.iml
+weatherviewer/*.prefs

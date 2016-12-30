@@ -1,0 +1,12 @@
+LongTermWeather
+LongTermForecast
+getLongTermForecast
+longTermForecast
+date
+high
+low
+rain
+skyCon
+snow
+temp
+weatherID

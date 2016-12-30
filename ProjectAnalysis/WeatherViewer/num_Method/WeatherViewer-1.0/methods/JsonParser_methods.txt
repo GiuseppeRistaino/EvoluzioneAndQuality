@@ -1,0 +1,3 @@
+JsonParser
+getData
+owmUrl

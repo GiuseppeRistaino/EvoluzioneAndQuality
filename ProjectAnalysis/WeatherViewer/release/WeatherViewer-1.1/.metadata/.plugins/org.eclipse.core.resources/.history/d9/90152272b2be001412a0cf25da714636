@@ -1,0 +1,304 @@
+package group17.weatherviewer;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+
+import javax.swing.SpringLayout;
+
+import java.awt.Color;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+
+import java.awt.CardLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.Toolkit;
+
+import javax.swing.BoxLayout;
+import javax.swing.JList;
+import javax.swing.JButton;
+
+import java.awt.Component;
+
+import javax.swing.Box;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JSeparator;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Font;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+public class mainFrame {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JButton buttonFavourite;
+	private JTextField barSearch;
+	private JLabel labelCity;
+	private JLabel labelTemp;
+	private JLabel labelWind;
+	private JLabel iconSkyCondition;
+	private JLabel lblAirPressure;
+	private JLabel lblMaxTemp;
+	private JLabel lblMinTemp;
+	private JLabel lblSunrise;
+	private JLabel lblSunset;
+	private JLabel labelHumidity;
+	private JLabel labelAirPressure;
+	private JLabel labelMaxTemp;
+	private JLabel labelMinTemp;
+	private JLabel labelSunrise;
+	private JLabel labelSunset;
+	private JLabel labelSkyCondition;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainFrame window = new mainFrame();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public mainFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		// attributes
+		int temp, windSpeed, airPressure, humidity, minTemp, maxTemp, sunRise, sunSet;
+		String windDirection, skyCondition, location;
+		// hard coded initializations
+		location = "Toronto, Ont.";
+		temp = 999;
+		windSpeed = 999;
+		windDirection = "East";
+		humidity = 999;
+		airPressure = 999;
+		maxTemp = 999;
+		minTemp = 999;
+		sunRise = 9999;
+		sunSet = 9999;
+		skyCondition = "Sunny";
+
+		// frame
+		Background backgroundImage = new Background(
+				Toolkit.getDefaultToolkit().getImage(
+						mainFrame.class.getResource("default_background.jpg")));
+		if (skyCondition == "Sunny") {
+			backgroundImage = new Background(
+					Toolkit.getDefaultToolkit()
+							.getImage(
+									mainFrame.class
+											.getResource("sunny_background.jpg")));
+		} else if (skyCondition == "Cloudy") {
+			backgroundImage = new Background(Toolkit.getDefaultToolkit()
+					.getImage(
+							mainFrame.class
+									.getResource("cloudy_background.jpg")));
+		} else if (skyCondition == "Rainy") {
+			backgroundImage = new Background(
+					Toolkit.getDefaultToolkit()
+							.getImage(
+									mainFrame.class
+											.getResource("rainy_background.jpg")));
+		} else {
+			backgroundImage = new Background(Toolkit.getDefaultToolkit()
+					.getImage(
+							mainFrame.class
+									.getResource("default_background.jpg")));
+		}
+		frame = new JFrame();
+		frame.setLocationRelativeTo(null);
+		frame.setSize(800, 520);
+		frame.getContentPane().add(backgroundImage);
+		backgroundImage.setLayout(null);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// refresh button
+		JButton buttonRefresh = new JButton("");
+		buttonRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		buttonRefresh.setIcon(new ImageIcon(
+				"/Users/Mom/Desktop/GUI images/refresh_icon.png"));
+		buttonRefresh.setBounds(540, 16, 41, 37);
+		buttonRefresh.setOpaque(false);
+		buttonRefresh.setContentAreaFilled(false);
+		buttonRefresh.setBorderPainted(false);
+		backgroundImage.add(buttonRefresh);
+
+		// favourite Button
+		buttonFavourite = new JButton("");
+		buttonFavourite.setIcon(new ImageIcon(
+				"/Users/Mom/Desktop/GUI images/star_icon.png"));
+		buttonFavourite.setOpaque(false);
+		buttonFavourite.setContentAreaFilled(false);
+		buttonFavourite.setBorderPainted(false);
+		buttonFavourite.setBounds(759, 16, 41, 37);
+		backgroundImage.add(buttonFavourite);
+
+		// search bar
+		barSearch = new JTextField();
+		barSearch.setText("Search (City, Country)");
+		barSearch.setBounds(590, 16, 171, 37);
+		barSearch.setOpaque(false);
+		backgroundImage.add(barSearch);
+		barSearch.setColumns(10);
+
+		// city label
+		labelCity = new JLabel(location);
+		labelCity.setForeground(Color.WHITE);
+		labelCity.setFont(new Font("Helvetica", Font.PLAIN, 17));
+		labelCity.setBounds(50, 25, 200, 37);
+		backgroundImage.add(labelCity);
+
+		// temperature label
+		labelTemp = new JLabel(temp + "°C");
+		labelTemp.setFont(new Font("Helvetica", Font.PLAIN, 93));
+		labelTemp.setForeground(Color.WHITE);
+		labelTemp.setBounds(50, 64, 260, 94);
+		backgroundImage.add(labelTemp);
+
+		// wind label
+		labelWind = new JLabel(windSpeed + "kmh " + windDirection);
+		labelWind.setForeground(Color.WHITE);
+		labelWind.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelWind.setBounds(95, 170, 200, 15);
+		backgroundImage.add(labelWind);
+
+		// sky condition image
+		iconSkyCondition = new JLabel("");
+		iconSkyCondition.setIcon(new ImageIcon(
+				"/Users/Mom/Desktop/GUI images/weather_snowy_icon.png"));
+		iconSkyCondition.setBounds(372, 70, 58, 50);
+		backgroundImage.add(iconSkyCondition);
+		
+		JLabel lblWind = new JLabel("Wind:");
+		lblWind.setForeground(Color.LIGHT_GRAY);
+		lblWind.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblWind.setBounds(50, 170, 61, 15);
+		backgroundImage.add(lblWind);
+		
+		JLabel lblHumidity = new JLabel("Humidity:");
+		lblHumidity.setForeground(Color.LIGHT_GRAY);
+		lblHumidity.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblHumidity.setBounds(50, 190, 61, 15);
+		backgroundImage.add(lblHumidity);
+		
+		lblAirPressure = new JLabel("Air Pressure:");
+		lblAirPressure.setForeground(Color.LIGHT_GRAY);
+		lblAirPressure.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblAirPressure.setBounds(50, 210, 96, 15);
+		backgroundImage.add(lblAirPressure);
+		
+		lblMaxTemp = new JLabel("Max Temp:");
+		lblMaxTemp.setForeground(Color.LIGHT_GRAY);
+		lblMaxTemp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblMaxTemp.setBounds(50, 230, 96, 15);
+		backgroundImage.add(lblMaxTemp);
+		
+		lblMinTemp = new JLabel("Min. Temp:");
+		lblMinTemp.setForeground(Color.LIGHT_GRAY);
+		lblMinTemp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblMinTemp.setBounds(50, 250, 96, 15);
+		backgroundImage.add(lblMinTemp);
+		
+		lblSunrise = new JLabel("Sunrise:");
+		lblSunrise.setForeground(Color.LIGHT_GRAY);
+		lblSunrise.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblSunrise.setBounds(50, 270, 61, 15);
+		backgroundImage.add(lblSunrise);
+		
+		lblSunset = new JLabel("Sunset:");
+		lblSunset.setForeground(Color.LIGHT_GRAY);
+		lblSunset.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		lblSunset.setBounds(50, 290, 58, 15);
+		backgroundImage.add(lblSunset);
+		
+		labelHumidity = new JLabel(humidity + "");
+		labelHumidity.setForeground(Color.WHITE);
+		labelHumidity.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelHumidity.setBounds(120, 190, 200, 15);
+		backgroundImage.add(labelHumidity);
+		
+		labelAirPressure = new JLabel(airPressure + "");
+		labelAirPressure.setForeground(Color.WHITE);
+		labelAirPressure.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelAirPressure.setBounds(145, 210, 200, 15);
+		backgroundImage.add(labelAirPressure);
+		
+		labelMaxTemp = new JLabel(maxTemp + "°C");
+		labelMaxTemp.setForeground(Color.WHITE);
+		labelMaxTemp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelMaxTemp.setBounds(130, 230, 200, 15);
+		backgroundImage.add(labelMaxTemp);
+		
+		labelMinTemp = new JLabel(minTemp + "°C");
+		labelMinTemp.setForeground(Color.WHITE);
+		labelMinTemp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelMinTemp.setBounds(130, 250, 200, 15);
+		backgroundImage.add(labelMinTemp);
+		
+		labelSunrise = new JLabel(sunRise + "");
+		labelSunrise.setForeground(Color.WHITE);
+		labelSunrise.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelSunrise.setBounds(110, 270, 200, 15);
+		backgroundImage.add(labelSunrise);
+		
+		labelSunset = new JLabel(sunSet + "");
+		labelSunset.setForeground(Color.WHITE);
+		labelSunset.setFont(new Font("Helvetica", Font.PLAIN, 15));
+		labelSunset.setBounds(110, 290, 200, 15);
+		backgroundImage.add(labelSunset);
+		
+		labelSkyCondition = new JLabel(skyCondition);
+		labelSkyCondition.setForeground(Color.WHITE);
+		labelSkyCondition.setFont(new Font("Helvetica", Font.PLAIN, 17));
+		labelSkyCondition.setBounds(381, 25, 200, 37);
+		backgroundImage.add(labelSkyCondition);
+		
+		//Scroll Pane
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(595, 56, 195, 422);
+		scrollPane.setOpaque(false);
+		scrollPane.getViewport().setOpaque(false);
+		backgroundImage.add(scrollPane);
+	}
+}

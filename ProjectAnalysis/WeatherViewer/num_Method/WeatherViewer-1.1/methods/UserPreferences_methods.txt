@@ -1,0 +1,14 @@
+FILENAME
+serialVersionUID
+defaultLocation
+UserPreferences
+locations
+tempUnit
+addLocation
+getDefaultLocation
+getLocations
+getPrefs
+getTempUnit
+savePrefs
+setDefaultLocation
+setTempUnit

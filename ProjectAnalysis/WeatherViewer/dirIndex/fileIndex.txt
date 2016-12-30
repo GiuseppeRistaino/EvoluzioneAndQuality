@@ -1,0 +1,10 @@
+###########################################
+Indici di ProjectAnalysis\WeatherViewer\num_Class\WeatherViewer-1.0-class.txt ProjectAnalysis\WeatherViewer\num_Class\WeatherViewer-1.1-class.txt :
+Classi totali tra le due release=7
+Intersezione tra le classi delle due release:7
+Mt=7
+Mt2=7
+Fa=0
+Fd=0
+Fc=3
+SMI=0.5714285714285714

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="GRAY" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="DARK_GRAY"/>
+			<item value="GRAY"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/backgrounds/sunny_background.jpg&quot;;"/>
+			<item value="skyConditionIconLarge = &quot;src/main/resources/icons/large/sun_icon.png&quot;;"/>
+			<item value="skyConditionIconLarge = &quot;src/main/resources/icons/sun_icon.png&quot;;"/>
+			<item value="skyConditionIcon = &quot;src/main/resources/icons/sun_icon.png&quot;"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/backgrounds/sunny_background.png&quot;;"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/icons/sunny_background.png&quot;;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="GRAY"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/backgrounds/sun.jpg&quot;;"/>
+			<item value="skyConditionIconLarge = &quot;src/main/resources/icons/large/sun.png&quot;;"/>
+			<item value="skyConditionIconLarge = &quot;src/main/resources/icons/large/sun_icon.png&quot;;"/>
+			<item value="skyConditionIconLarge = &quot;src/main/resources/icons/sun_icon.png&quot;"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/backgrounds/sunny_background.jpg&quot;;"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/icons/sunny_background.jpg&quot;;"/>
+			<item value="skyConditionBackground = &quot;src/main/resources/backgrounds/sunny_background.png&quot;;"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="265" key="DIALOG_WIDTH"/>
+		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="1022" key="DIALOG_X_ORIGIN"/>
+		<item value="265" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>
